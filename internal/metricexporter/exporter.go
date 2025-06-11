@@ -135,7 +135,6 @@ func (e *Exporter) processEvents() {
 func (e *Exporter) handleEvent(event eventexporter.Event) {
 	e.mu.Lock()
 	defer e.mu.Unlock()
-
 	switch event.Type {
 	case "stream":
 		e.handleStreamEvent(event)

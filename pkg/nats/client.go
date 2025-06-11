@@ -3,7 +3,6 @@ package nats
 import (
 	"fmt"
 
-	"github.com/nats-io/jsm.go"
 	"github.com/nats-io/nats.go"
 	"github.com/snapp-incubator/nats-helper/pkg/config"
 )
@@ -25,12 +24,6 @@ func New(cfg *config.NATSConfig) (*Client, error) {
 	nc, err := nats.Connect(cfg.URL, opts...)
 	if err != nil {
 		return nil, fmt.Errorf("failed to connect to NATS: %w", err)
-	}
-
-	jsm, err := jsm.New(nc)
-	if err != nil {
-		nc.Close()
-		return nil, fmt.Errorf("failed to create JSM manager: %w", err)
 	}
 
 	return &Client{
