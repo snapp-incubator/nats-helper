@@ -11,7 +11,6 @@ import (
 // Client represents a NATS client with JSM capabilities
 type Client struct {
 	Conn *nats.Conn
-	JSM  *jsm.Manager
 }
 
 // New creates a new NATS client
@@ -36,7 +35,6 @@ func New(cfg *config.NATSConfig) (*Client, error) {
 
 	return &Client{
 		Conn: nc,
-		JSM:  jsm,
 	}, nil
 }
 

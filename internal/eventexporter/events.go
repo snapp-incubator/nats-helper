@@ -2,6 +2,7 @@ package eventexporter
 
 import (
 	"encoding/json"
+	"fmt"
 	"strings"
 	"time"
 
@@ -58,6 +59,7 @@ func (e *Exporter) handleStreamEvent(msg *nats.Msg) {
 	select {
 	case e.events <- event:
 	default:
+		fmt.Println("Channel is full, dropping event")
 		// Channel is full, drop event
 	}
 }
