@@ -90,9 +90,13 @@ func init() {
 
 	// Add configuration file flag
 	exportCmd.Flags().StringVar(&cfgFile, "config", "", "path to configuration file")
-	viper.BindPFlag("config", exportCmd.Flags().Lookup("config"))
+	if err := viper.BindPFlag("config", exportCmd.Flags().Lookup("config")); err != nil {
+		panic(fmt.Errorf("failed to bind config flag: %w", err))
+	}
 
 	// Add metrics address flag
 	exportCmd.Flags().StringVar(&metricsAddr, "metrics-addr", ":9090", "address to expose metrics on")
-	viper.BindPFlag("metrics-addr", exportCmd.Flags().Lookup("metrics-addr"))
+	if err := viper.BindPFlag("metrics-addr", exportCmd.Flags().Lookup("metrics-addr")); err != nil {
+		panic(fmt.Errorf("failed to bind metrics-addr flag: %w", err))
+	}
 }

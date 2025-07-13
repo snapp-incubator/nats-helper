@@ -1,0 +1,11 @@
+Thank you for installing **nats-helper**!
+
+Your release is named: {{ .Release.Name }}
+
+To check the status of your deployment:
+  kubectl get pods -l app.kubernetes.io/instance={{ .Release.Name }}
+
+To access the service, run:
+  kubectl port-forward svc/{{ include "nats-helper.fullname" . }} 8080:8080
+
+Then access it via http://localhost:8080 

@@ -1,0 +1,4 @@
+nats:
+  url: <ip:port>
+  user: <user>
+  password: <password>
