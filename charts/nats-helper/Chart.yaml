@@ -8,3 +8,6 @@ keywords:
   - exporter
   - monitoring
 home: https://github.com/snapp-incubator/nats-helper
+maintainers:
+  - name: Snapp Incubator
+    email: opensource@snapp.cab 

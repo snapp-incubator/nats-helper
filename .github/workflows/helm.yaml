@@ -39,7 +39,7 @@ jobs:
 
       - name: login to github container registry using helm
         run: |
-          echo ${{ secrets.GITHUB_TOKEN }} | helm registry login ghcr.io/snapp-incubator/nats-helper--username ${{ github.repository_owner }} --password-stdin
+          echo ${{ secrets.GITHUB_TOKEN }} | helm registry login ghcr.io --username ${{ github.repository_owner }} --password-stdin
 
       - name: package nats-helper helm chart
         run: |
