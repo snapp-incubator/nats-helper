@@ -32,8 +32,8 @@ tolerations: []
 affinity: {}
 
 env: []
-config: |
-  # Example config
+
+config: 
   nats:
     url: "nats://nats:4222"
     user: ""

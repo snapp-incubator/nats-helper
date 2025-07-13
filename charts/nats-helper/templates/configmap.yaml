@@ -6,4 +6,4 @@ metadata:
     {{- include "nats-helper.labels" . | nindent 4 }}
 data:
   config.yaml: |-
-{{ .Values.config | indent 4 }} 
+    {{- toYaml .Values.config | nindent 4 }}
