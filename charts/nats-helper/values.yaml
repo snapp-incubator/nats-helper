@@ -1,0 +1,42 @@
+replicaCount: 1
+
+image:
+  repository: snapp-incubator/nats-helper
+  pullPolicy: IfNotPresent
+  tag: "latest"
+
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  create: true
+  annotations: {}
+  name: ""
+
+podAnnotations: {}
+
+podSecurityContext: {}
+
+securityContext: {}
+
+service:
+  type: ClusterIP
+  port: 8080
+
+resources: {}
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+env: []
+  # - name: NATS_URL
+  #   value: nats://nats:4222 
+config: |
+  # Example config
+  nats:
+    url: nats://nats:4222
+    user: ""
+    password: "" 

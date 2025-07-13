@@ -52,14 +52,21 @@ func (e *Exporter) Start() error {
 		e.handleConsumerEvent(msg)
 	})
 	if err != nil {
-		streamSub.Unsubscribe()
+		err2 := streamSub.Unsubscribe()
+		if err2 != nil {
+			return fmt.Errorf("failed to unsubscribe from stream events: %w", err2)
+		}
 		return fmt.Errorf("failed to subscribe to consumer events: %w", err)
 	}
 
 	go func() {
 		<-e.stopCh
-		streamSub.Unsubscribe()
-		consumerSub.Unsubscribe()
+		if err := streamSub.Unsubscribe(); err != nil {
+			fmt.Printf("failed to unsubscribe from stream events: %v\n", err)
+		}
+		if err := consumerSub.Unsubscribe(); err != nil {
+			fmt.Printf("failed to unsubscribe from consumer events: %v\n", err)
+		}
 	}()
 
 	return nil

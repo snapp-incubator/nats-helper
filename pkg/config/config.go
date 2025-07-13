@@ -30,9 +30,15 @@ func Load(configPath string) (*Config, error) {
 	// Read from environment variables
 	v.SetEnvPrefix("NATS_HELPER")
 	v.AutomaticEnv()
-	v.BindEnv("nats.url", "NATS_URL")
-	v.BindEnv("nats.user", "NATS_USER")
-	v.BindEnv("nats.password", "NATS_PASSWORD")
+	if err := v.BindEnv("nats.url", "NATS_URL"); err != nil {
+		return nil, fmt.Errorf("failed to bind env nats.url: %w", err)
+	}
+	if err := v.BindEnv("nats.user", "NATS_USER"); err != nil {
+		return nil, fmt.Errorf("failed to bind env nats.user: %w", err)
+	}
+	if err := v.BindEnv("nats.password", "NATS_PASSWORD"); err != nil {
+		return nil, fmt.Errorf("failed to bind env nats.password: %w", err)
+	}
 
 	// If config file is specified, use it
 	if configPath != "" {

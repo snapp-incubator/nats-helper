@@ -1,0 +1,10 @@
+apiVersion: v2
+name: nats-helper
+description: A Helm chart for deploying the nats-helper service
+version: 0.1.0
+appVersion: "1.0.0"
+keywords:
+  - nats
+  - exporter
+  - monitoring
+home: https://github.com/snapp-incubator/nats-helper
