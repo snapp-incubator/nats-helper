@@ -32,11 +32,9 @@ tolerations: []
 affinity: {}
 
 env: []
-  # - name: NATS_URL
-  #   value: nats://nats:4222 
 config: |
   # Example config
   nats:
-    url: nats://nats:4222
+    url: "nats://nats:4222"
     user: ""
-    password: "" 
+    password: ""

@@ -14,7 +14,6 @@ RUN go mod download
 COPY . .
 
 # Build the Go app
-WORKDIR /app/cmd/nats-helper
 RUN go build -o /nats-helper
 
 FROM alpine:3.20
