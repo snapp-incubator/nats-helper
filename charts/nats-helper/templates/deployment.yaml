@@ -33,7 +33,7 @@ spec:
               value: {{ .value | quote }}
             {{- end }}
           ports:
-            - containerPort: 8080
+            - containerPort: 9090
               name: http
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
