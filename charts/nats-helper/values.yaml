@@ -1,7 +1,7 @@
 replicaCount: 1
 
 image:
-  repository: snapp-incubator/nats-helper
+  repository: ghcr.io/snapp-incubator/nats-helper
   pullPolicy: IfNotPresent
   tag: "latest"
 
@@ -38,3 +38,13 @@ config:
     url: "nats://nats:4222"
     user: ""
     password: ""
+
+serviceMonitor:
+  enabled: true
+  interval: 30s
+  path: /metrics
+  labels: {}
+  annotations: {}
+  scheme: ""
+  metricRelabelings: []
+  relabelings: []
