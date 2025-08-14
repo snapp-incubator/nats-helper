@@ -33,7 +33,7 @@ affinity: {}
 
 env: []
 
-config: 
+config:
   nats:
     url: "nats://nats:4222"
     user: ""
